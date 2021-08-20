@@ -1,7 +1,6 @@
 class BubbleSort():
     def __init__(self, vector = []):
         self.vector = [5, 3, 2, 4, 7, 1, 0, 6] if vector == [] else vector
-        pass
 
     def sorting(self):
         array_size = len(self.vector) # what is the size of the provided array?
@@ -22,10 +21,10 @@ class BubbleSort():
                     got_in = True
                 j += 1
 
-            got_in = False if not got_in else got_in
+            got_in = False if not got_in else got_in # if we didn't get inside the if, it means that is everything already sorted, which means that we can already stop the array
             k += 1
 
         return self.vector # return the vector
 
-b = BubbleSort([10, 11, 12, 13, 14, 2, 232, 100, 1, 0, 101])
+b = BubbleSort()
 print(b.sorting())
