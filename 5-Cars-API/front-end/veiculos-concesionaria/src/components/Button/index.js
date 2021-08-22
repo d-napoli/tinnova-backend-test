@@ -8,7 +8,10 @@ import {
 function Button(props) {
     return (
         <>
-            <Btn>
+            <Btn
+                onClick={props.click}
+                solid={props.solid ? true : false}
+            >
                 {props.text}
             </Btn>
         </>

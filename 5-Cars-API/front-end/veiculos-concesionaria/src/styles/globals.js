@@ -11,8 +11,49 @@ export default createGlobalStyle`
         --secondary: #1B1E32;
         --secondary_light: #222640;
         --tertiary: #141628;
-        /* --dark_gray: #1d1e22; */
         --dark_gray: #282a36;
+    }
+
+    @media screen and (min-width: 1280px) and (max-width: 1500px) {
+        :root {
+            --horizontal__padding: 15%;
+            --vertical__padding: 40px;
+            --grid__flex__direction: column;
+            --width: 80%;
+        }
+    }
+    @media screen and (min-width: 1501px) {
+        :root {
+            --horizontal__padding: 25%;
+            --vertical__padding: 40px;
+            --grid__flex__direction: column;
+            --width: 80%;
+        }
+    }
+    
+    @media screen and (min-width: 769px) and (max-width: 1279px) {
+        :root {
+            --horizontal__padding: 150px;
+            --vertical__padding: 40px;
+            --grid__flex__direction: column;
+            --width: 80%;
+        }
+    }
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+        :root {
+            --horizontal__padding: 70px;
+            --vertical__padding: 40px;
+            --grid__flex__direction: column;
+            --width: 75%;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        :root {
+            --horizontal__padding: 30px;
+            --vertical__padding: 40px;
+            --grid__flex__direction: row;
+            --width: 100%;
+        }
     }
 
     * {
@@ -30,7 +71,8 @@ export default createGlobalStyle`
 
     body {
         font: 14px 'Robot', sans-serif;
-        background: #ecf1f8;
+        /* background: #ecf1f8; */
+        background: white;
         color: #333;
         -webkit-font-smoothing: antialiased !important;
     }
