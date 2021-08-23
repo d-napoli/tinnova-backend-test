@@ -16,3 +16,11 @@ Funciona atravez de um loop, comparando sempre dois elementos. Se um dos dois el
 ( 1 **4 2** 5 8 ) → ( 1 **2 4** 5 8 ) [Troca, já que 4 é maior que 2]<br>
 ( 1 2 **4 5** 8 ) → ( 1 2 **4 5** 8 )<br>
 ( 1 2 4 **5 8** ) → ( 1 2 4 **5 8** )<br>
+
+### Terceira execução
+( **1 2** 4 5 8 ) → ( **1 2** 4 5 8 )<br>
+( 1 **2 4** 5 8 ) → ( 1 **2 4** 5 8 )<br>
+( 1 2 **4 5** 8 ) → ( 1 2 **4 5** 8 )<br>
+( 1 2 4 **5 8** ) → ( 1 2 4 **5 8** )<br>
+
+#### Array ordenado ☺️
