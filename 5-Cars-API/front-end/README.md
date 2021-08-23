@@ -25,3 +25,8 @@ ou
 ```batch
 yarn add styled-components
 ```
+## Rodando o projeto
+Para rodar o projeto, basta rodar o comando start do npm<br>
+```batch
+npm start
+```
