@@ -13,7 +13,11 @@ Cada **componente é uma pasta**, contendo dentro da mesma um arquivo `index.js`
 
 ## Instalando o react
 [Link](https://reactjs.org/docs/getting-started.html) para a doc oficial
-## Instalando o Styled Components
+## Styled Components
+A lib o **Styled Components** facilita durante a componentização do código.<br>
+Com ela conseguimos passar parâmetros de forma fácil para o nosso **CSS**, assim como aplicar outras lógicas.
+[Link](https://styled-components.com/) para a doc oficial.
+### Instalando
 ```batch
 npm install styled-components
 ```
