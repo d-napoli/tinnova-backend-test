@@ -10,10 +10,10 @@ A classe em questão tinha como objetivo principal calcular três métricas rela
 <br>
 As variáveis com quantidade de votos para cada categoria são fixas, **conforme o PDF**. Elas são dividias da seguinte forma:
 <br>
-Quantidade total de votos: **1000** <br>
-Quantidade de votos válidos: **800** <br>
-Quantidade de votos em branco: **150** <br>
-Quantidade de votos nulos: **50** <br>
+Quantidade total de votos: 1000 <br>
+Quantidade de votos válidos: 800 <br>
+Quantidade de votos em branco: 150 <br>
+Quantidade de votos nulos: 50 <br>
 O cálculo para retornar o percentual é sempre o mesmo, variando apenas qual o tipo de voto.<br><br>
 
 ```python
