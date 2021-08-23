@@ -1,4 +1,4 @@
-# Multiplos
+# Múltiplos
 Algoritmo para calcular a soma dos múltiplos de **3** ou **5**, a partir de 1 até um valor N especificado pelo usuário.
 ## Exemplo:
 ### N = 10 (Vamos de 1 até 10 então)
