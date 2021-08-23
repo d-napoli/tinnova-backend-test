@@ -117,7 +117,6 @@ function CarItem(props) {
                 <Title>{props.veiculo} - {props.marca}</Title>
                 <YearTag>{props.ano}</YearTag>
                 { props.vendido ? <Tag>Vendido</Tag> : "" }
-                <p>Olá - {createdDate}</p>
             </Header>
             <Body>
                 <Description>
