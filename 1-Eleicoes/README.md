@@ -15,4 +15,7 @@ Quantidade de votos válidos: **800**<br>
 Quantidade de votos em branco: **150**<br>
 Quantidade de votos nulos: **50**<br>
 O cálculo para retornar o percentual é sempre o mesmo, variando apenas qual o tipo de voto.<br>
-`(tipo_voto * 100) / total_votos`
+
+```python
+(tipo_voto * 100) / total_votos
+```
