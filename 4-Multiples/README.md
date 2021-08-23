@@ -10,8 +10,7 @@ Algoritmo para calcular a soma dos múltiplos de **3** ou **5**, a partir de 1 a
 - 6 é múltiplo de 3 ou 5? ✅ (total = 14 [5 + 3 + 6])
 - 7 é múltiplo de 3 ou 5? ❌
 - 8 é múltiplo de 3 ou 5? ❌
-- 9 é múltiplo de 3 ou 5? ✅ (total = 23 [5 + 3 + 6 + 9])
-<br>
+- 9 é múltiplo de 3 ou 5? ✅ (total = 23 [5 + 3 + 6 + 9])<br>
 ### Resposta: 23
 
 ## Realização do algoritmo
