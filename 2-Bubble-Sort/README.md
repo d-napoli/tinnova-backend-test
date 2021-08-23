@@ -24,3 +24,10 @@ Funciona atravez de um loop, comparando sempre dois elementos. Se um dos dois el
 ( 1 2 4 **5 8** ) → ( 1 2 4 **5 8** )<br>
 
 #### Array ordenado ☺️
+
+# Como executar o código
+Para executar o código, é necessário ter o Python instalado.<br>
+Foi utilizado o Python 3.9.2 para a codificação<br><br>
+```python
+python main.py
+```
