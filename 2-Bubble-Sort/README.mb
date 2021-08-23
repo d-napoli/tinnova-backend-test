@@ -1,0 +1,9 @@
+# 2 - Bubble Sort
+Bubble Sort é um dos algoritmos de ordenação mais simples (se não o mais simples).<br>
+Funciona atravez de um loop, comparando sempre dois elementos. Se um dos dois elementos for maior que o outro, realiza a troca entre eles, mantendo a ordenação correta.<br>
+
+## Exemplo de Bubble Sort
+
+
+### Primeira Execução
+( **5 1** 4 2 8 ) → ( **1 5** 4 2 8 )<br>
