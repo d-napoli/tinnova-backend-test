@@ -15,9 +15,17 @@ activate.bat
 ```
 ### Download do Python (3.9.2)
 Acesse o seguinte [link](https://www.python.org/downloads/) e siga as instruções fornecidas pelo wizard.<br>
+### Porque o Django?
+Django é um **Framework** de alto nível para a linguagem de programação Python. Foi desenvolvido para realizarmos desenvolvimento rápido, pragmático e limpo.<br>
+Seu foco é **produtividade, entrega rápida e escalável.**<br>
 ### Download do Django
 Dentro da nossa virtual machine (**venv**), precisamos instalar o **Django**.<br>
 Assim como praticamente todos os packages do Python, vamos utilizar o **Pip** (Python package index).<br>
 ```batch
 pip install Django
+```
+### Download do Django Rest Framework
+Dentro da nossa virtual machine (**venv**), precisamos instalar o **Django Rest Framework**.<br>
+```batch
+pip install Djange-Rest-Framework
 ```
