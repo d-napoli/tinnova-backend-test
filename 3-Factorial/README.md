@@ -10,4 +10,4 @@ Conhecemos como fatorial de um número natural a multiplicação desse número p
 - 6! = 6 · 5 · 4 · 3 · 2 · 1 = 720
 - 7! = 7· 6 · 5 · 4 · 3 · 2 · 1 = 5040
 <br>
-#### Fonte [Brasil Escola(https://brasilescola.uol.com.br/matematica/fatorial.htm)]
+Fonte [Brasil Escola](https://brasilescola.uol.com.br/matematica/fatorial.htm)
