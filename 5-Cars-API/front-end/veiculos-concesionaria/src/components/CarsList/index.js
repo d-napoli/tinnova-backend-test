@@ -1,53 +1,80 @@
 import React, { useEffect, useState } from 'react';
 
 import CarItem from '../CarItem'
+import FilterButton from '../FilterButton';
 
 import {
-    Container
+    Container,
+    FiltersWrapper
 } from './styles'
 
-function CarsList() {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]);
+function CarsList(props) {
+    const [filterAll, setFilterAll] = useState(true)
+    const [filterSevenDays, setFilterSevenDays] = useState(false)
+    const [filterDays, setFilterDays] = useState(7)
 
-    const makeAPICall = async () => {
-        try {
-            const response = await fetch('http://localhost:8000/veiculos/', {mode:'cors'});
-            const data = await response.json();
-            setIsLoaded(true)
-            setItems(data)
-            console.log({ data })
-        }
-        catch (e) {
-            setIsLoaded(true)
-            setError(e)
-            console.log(e)
-        }
+    function handleCallBack() {
+        props.callBackFunction()
     }
 
-    useEffect(() => {
-        makeAPICall();
-    }, []);
+    function applyAllFilter() {
+        setFilterAll(true)
+        setFilterSevenDays(false)
+    }
 
+    function applySevenDaysFilter() {
+        setFilterAll(false)
+        setFilterSevenDays(true)
+    }
+
+    function isDateWithinPeriod(date) {
+        var last_week = new Date()
+        last_week.setDate(last_week.getDate() - filterDays)
+        last_week.setHours(0, 0, 0, 0)
+
+        var compare_date = new Date(date)
+        compare_date.setHours(0, 0, 0, 0)
+
+        if (compare_date >= last_week)
+            return true
+
+        return false
+    }
+  
+    useEffect(() => {
+        
+    }, [props.cars]);
+    
     return (
         <Container>
-            
+            <FiltersWrapper>
+                <FilterButton
+                    active={filterAll}
+                    text="Todos"
+                    click={applyAllFilter}
+                />
+                <FilterButton
+                    active={filterSevenDays}
+                    text={filterDays + " dias"}
+                    click={e => applySevenDaysFilter()}
+                />
+            </FiltersWrapper>
             {
-                error ? <p>{error}</p> :
-                isLoaded ?
-                items.map(item => (
-                    <CarItem
-                        key={item.id}
-                        id={item.id}
-                        veiculo={item.veiculo}
-                        marca={item.marca}
-                        ano={item.ano}
-                        descricao={item.descricao}
-                        vendido={item.vendido}
-                    />
+                props.cars.map(car => (
+                    filterAll || isDateWithinPeriod(car.created) ?
+                        <CarItem
+                            key={car.id}
+                            id={car.id}
+                            veiculo={car.veiculo}
+                            marca={car.marca}
+                            ano={car.ano}
+                            descricao={car.descricao}
+                            vendido={car.vendido}
+                            created={car.created}
+                            callBackFunction={e => handleCallBack()}
+                        />
+                    : null
                 ))  
-                : <p>Carregando...</p>
             }
         </Container>
     )

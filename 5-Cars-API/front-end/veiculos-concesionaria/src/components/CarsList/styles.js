@@ -8,3 +8,16 @@ export const Container = styled.div`
     background-color: white;
     width: 100%;
 `;
+
+export const FiltersWrapper = styled.div`
+    display: flex;
+
+    align-items: flex-start;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+        & button {
+            margin-right: 10px;
+        }
+    }
+`;

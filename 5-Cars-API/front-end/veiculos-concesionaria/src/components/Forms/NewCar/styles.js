@@ -40,9 +40,10 @@ export const Select = styled.select`
 `;
 export const Option = styled.option``;
 
-export const Label = styled.label`
-    margin-bottom: 10px;
+export const Label = styled.small`
+    margin: 2px 0px;
     font-weight: bold;
+    /* font-size: .8rem; */
 `;
 
 export const InputWrapper = styled.div`

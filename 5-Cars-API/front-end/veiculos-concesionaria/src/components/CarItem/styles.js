@@ -52,6 +52,12 @@ export const Description = styled.p``
 
 export const Footer = styled.div`
     margin-top: 20px;
+
+    @media screen and (min-width: 768px) {
+        & > button {
+            margin-right: 10px;
+        }
+    }
 `
 
 export const ModalTitle = styled.h2`

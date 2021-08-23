@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Button from '../Button'
 import Modal from '../Modal_Group/Modal'
+
+import UpdateCarForm from '../Forms/NewCar'
 
 import {
     Container,
@@ -19,75 +21,103 @@ import {
 } from './styles'
 
 function CarItem(props) {
-    const [isModalShowing, setModalShowing] = useState(false)
+    const [isDeleteModalShowing, setDeleteModalShowing] = useState(false)
+    const [modalTitle, setModalTitle] = useState("")
+    const [modalDescription, setModalDescription] = useState("")
+    const [isDeleteModal, setIsDeleteModal] = useState(false)
+    const [createdDate, setCreatedDate] = useState("")
 
     let description_limit = 150
 
-    const deleteItem = async () => {
-        try {
-            const response = await fetch(
-                `http://localhost:8000/veiculos/${props.id}`,
-                {method: 'DELETE'},
-                {mode:'no-cors'},
-                {headers: {'Content-Type': 'application/json'}}
-            );
-            const data = await response.json();
-            console.log({ data })
-        }
-        catch (e) {
-            console.log(e)
-        }
+    function handleCallBack() {
+        props.callBackFunction()
     }
 
+    function formatDate() {
+        let data = new Date(props.created)
+        setCreatedDate(data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear())
+        return createdDate
+    }
 
-    function deleteItem2() {
+    function deletaCarro() {
         const requestOptions = {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({})
         };
 
-        let error_message = "Erro ao cadastrar o veículo"
-
         fetch(`http://localhost:8000/veiculos/${props.id}`, requestOptions)
             .then(async response => {    
                 if (!response.ok) {
+                    console.log("Erro")
                     return
                 }
+                closeDeleteModal()
+                handleCallBack() // updates the parent element list
             })
             .catch(error => {
-                console.error('There was an error!', error);
+                console.log(error)
             });
     }
 
-    function closeModal() {
-        setModalShowing(false)
+    function closeDeleteModal() {
+        setDeleteModalShowing(false)
     }
 
-    function openModal() {
-        let modal_status = isModalShowing
-        setModalShowing(!modal_status)
+    function openModal(type) {
+        if (type == "delete") {
+            setModalTitle(`Deletar ${props.veiculo}?`)
+            setModalDescription("A ação irá deletar permanentemente o carro.")
+            setDeleteModalShowing(true)
+            setIsDeleteModal(true)
+        } else {
+            setModalTitle(`Alterar ${props.veiculo}?`)
+            setModalDescription("Altere os dados necessários usando o formulário abaixo")
+            setDeleteModalShowing(true)
+            setIsDeleteModal(false)
+        }
     }
+
+    
+  useEffect(() => {
+    formatDate();
+  }, []);
 
     return (
         <Container>
             <Modal
-                show={isModalShowing}
-                modalClosed={closeModal}
+                show={isDeleteModalShowing}
+                modalClosed={closeDeleteModal}
             >
                 <ModalHeader>
-                    <ModalTitle>Deletar {props.veiculo}?</ModalTitle>
-                    <ModalDescription>A ação irá deletar permanentemente o carro.</ModalDescription>
+                    <ModalTitle>{modalTitle}</ModalTitle>
+                    <ModalDescription>{modalDescription}</ModalDescription>
                 </ModalHeader>
-                <ModalFooter>
-                    <Button click={deleteItem} solid={true} text="Sim, deletar" />
-                    <Button click={closeModal} text="Cancelar" />
-                </ModalFooter>
+                {
+                    isDeleteModal ?
+                    <ModalFooter>
+                        <Button click={deletaCarro} solid={true} text="Sim, Deletar" />
+                        <Button click={closeDeleteModal} text="Cancelar" />
+                    </ModalFooter>
+                    : <UpdateCarForm
+                        id={props.id}
+                        actionType="update"
+                        actionButtonText="Alterar"
+                        veiculo={props.veiculo}
+                        marca={props.marca}
+                        ano={props.ano}
+                        vendido={props.vendido}
+                        descricao={props.descricao}
+                        callBackFunction={handleCallBack}
+                        cancelButton={closeDeleteModal}
+                    />
+                }
             </Modal>
             <Header>
-                <Title>{props.veiculo} - {props.id} - {props.marca}</Title>
+                <Title>{props.veiculo} - {props.marca}</Title>
                 <YearTag>{props.ano}</YearTag>
                 { props.vendido ? <Tag>Vendido</Tag> : "" }
+                <p>Olá - {createdDate}</p>
             </Header>
             <Body>
                 <Description>
@@ -98,8 +128,12 @@ function CarItem(props) {
             </Body>
             <Footer>
                 <Button 
+                    text="Alterar"
+                    click={e => openModal("update")}
+                />
+                <Button 
                     text="Deletar"
-                    click={openModal}
+                    click={e => openModal("delete")}
                 />
             </Footer>
         </Container>
