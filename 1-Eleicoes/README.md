@@ -19,3 +19,10 @@ O cálculo para retornar o percentual é sempre o mesmo, variando apenas qual o 
 ```python
 (tipo_voto * 100) / total_votos
 ```
+
+# Como executar o código
+Para executar o código, é necessário ter o Python instalado.<br>
+Foi utilizado o Python 3.9.2 para a codificação<br><br>
+```python
+python main.py
+```
