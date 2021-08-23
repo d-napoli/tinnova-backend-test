@@ -1,3 +1,5 @@
+![enter image description here](https://raw.githubusercontent.com/d-napoli/tinnova-backend-test/main/5-Cars-API/media/Front-End-Screen-Main.png)
+<br>
 # API de concessionária
 **Maior e mais complexa** parte da prova.<br>
 Essa questão foi dividida em duas pastas:<br>
