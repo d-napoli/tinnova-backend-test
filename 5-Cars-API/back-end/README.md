@@ -1,7 +1,5 @@
 # Backend
 Backend desenvolvido com o **Python** (Versão 3.9.2)
-## Executar o projeto
-[aqui]()
 ## Dependências
 - Python
 - [Django](https://github.com/d-napoli/tinnova-backend-test/tree/main/5-Cars-API/back-end#download-do-django)
